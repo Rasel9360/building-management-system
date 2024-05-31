@@ -1,8 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hook/useAuth";
+import { toast } from "react-toastify";
 
 const Register = () => {
+    const { createUser, updateUser, logOutUser } = useAuth()
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -11,7 +15,28 @@ const Register = () => {
     } = useForm()
 
     const handleRegister = (data) => {
-        console.log(data);
+        // console.log(data);
+        createUser(data.email, data.password)
+            .then(res => {
+                console.log(res.user);
+                updateUser(data.name, data.photo)
+                    .then(() => {
+                        console.log('user crate');
+                    })
+                    .catch((error) => console.log(error));
+                toast.success('user create successful')
+                logOutUser()
+                    .then(() => {
+                        navigate('/login')
+                     })
+                    .catch((error) => console.log(error))
+            })
+            .catch(err => {
+                console.log(err)
+                toast.error(err.message)
+            })
+        reset()
+
     }
 
     return (
