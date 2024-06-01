@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        jura: "'Jura', sans-serif"
+        jura: "'Jura', sans-serif",
+        sev: "'Sevillana', cursive"
       }
     },
   },

@@ -40,12 +40,12 @@ const Register = () => {
     }
 
     return (
-        <div className='flex justify-center items-center min-h-[calc(100vh-68px)] font-serif'>
+        <div className='flex justify-center bg-[#F1FAFE] items-center min-h-[calc(100vh-68px)] font-serif'>
             <Helmet>
                 <title>Register Page</title>
             </Helmet>
             <div className='flex w-full border max-w-sm mx-auto overflow-hidden  rounded-lg shadow-lg  lg:max-w-4xl '>
-                <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
+                <div className='w-full px-6 bg-base-100 py-8 md:px-8 lg:w-1/2'>
 
                     <p className='mt-3 text-2xl font-bold text-center  '>
                         Get Your Free Account Now.

@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar.jsx/Navbar";
 const MainLayout = () => {
     return (
         <div>
-            <div className="h-[68px]">
+            <div className="h-[64px]">
                 <Navbar></Navbar>
             </div>
             <Outlet></Outlet>

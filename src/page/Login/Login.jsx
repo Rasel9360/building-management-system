@@ -39,7 +39,7 @@ const Login = () => {
     }
 
     return (
-        <div className='flex justify-center items-center min-h-[calc(100vh-68px)] font-serif'>
+        <div className='flex bg-[#F1FAFE] justify-center items-center min-h-[calc(100vh-68px)] font-serif'>
             <Helmet>
                 <title>Login Page</title>
             </Helmet>
@@ -51,7 +51,7 @@ const Login = () => {
                     }}
                 ></div>
 
-                <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
+                <div className='w-full bg-base-100 px-6 py-8 md:px-8 lg:w-1/2'>
 
                     <p className='mt-3 text-2xl text-center font-bold  '>
                         Please Login !
