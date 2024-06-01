@@ -8,7 +8,7 @@ const About = () => {
                 <div className='md:flex items-center gap-20 pb-20'>
                     <div className="md:w-1/2 overflow-hidden shadow-xl ">
                         <img
-                            className='h-[36rem] w-full rounded hover:scale-110 transition-transform'
+                            className='h-[36rem] w-full rounded hover:scale-110 transition-transform object-center object-cover'
                             src={image}
                             alt="building photo" />
                     </div>
