@@ -1,0 +1,146 @@
+[
+    {
+        "apartment_image": "image1.jpg",
+        "floor_no": 1,
+        "block_name": "A",
+        "apartment_no": "101",
+        "rent": 1200,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image2.jpg",
+        "floor_no": 2,
+        "block_name": "A",
+        "apartment_no": "201",
+        "rent": 1300,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image3.jpg",
+        "floor_no": 3,
+        "block_name": "A",
+        "apartment_no": "301",
+        "rent": 1400,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image4.jpg",
+        "floor_no": 1,
+        "block_name": "B",
+        "apartment_no": "102",
+        "rent": 1150,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image5.jpg",
+        "floor_no": 2,
+        "block_name": "B",
+        "apartment_no": "202",
+        "rent": 1250,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image6.jpg",
+        "floor_no": 3,
+        "block_name": "B",
+        "apartment_no": "302",
+        "rent": 1350,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image7.jpg",
+        "floor_no": 1,
+        "block_name": "C",
+        "apartment_no": "103",
+        "rent": 1100,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image8.jpg",
+        "floor_no": 2,
+        "block_name": "C",
+        "apartment_no": "203",
+        "rent": 1200,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image9.jpg",
+        "floor_no": 3,
+        "block_name": "C",
+        "apartment_no": "303",
+        "rent": 1300,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image10.jpg",
+        "floor_no": 1,
+        "block_name": "D",
+        "apartment_no": "104",
+        "rent": 1250,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image11.jpg",
+        "floor_no": 2,
+        "block_name": "D",
+        "apartment_no": "204",
+        "rent": 1350,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image12.jpg",
+        "floor_no": 3,
+        "block_name": "D",
+        "apartment_no": "304",
+        "rent": 1450,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image13.jpg",
+        "floor_no": 1,
+        "block_name": "E",
+        "apartment_no": "105",
+        "rent": 1180,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image14.jpg",
+        "floor_no": 2,
+        "block_name": "E",
+        "apartment_no": "205",
+        "rent": 1280,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image15.jpg",
+        "floor_no": 3,
+        "block_name": "E",
+        "apartment_no": "305",
+        "rent": 1380,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image16.jpg",
+        "floor_no": 1,
+        "block_name": "F",
+        "apartment_no": "106",
+        "rent": 1120,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image17.jpg",
+        "floor_no": 2,
+        "block_name": "F",
+        "apartment_no": "206",
+        "rent": 1220,
+        "status": "Rent"
+    },
+    {
+        "apartment_image": "image18.jpg",
+        "floor_no": 3,
+        "block_name": "F",
+        "apartment_no": "306",
+        "rent": 1320,
+        "status": "Rent"
+    }
+]
