@@ -2,18 +2,45 @@ import { MdApartment } from "react-icons/md";
 import useAuth from "../../hook/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../../hook/useAxiosSecure";
 
 const ApartmentCart = ({ apartment }) => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
 
     const handleAddToAgreement = () => {
-        if(user || user?.email){
 
-            console.log(apartment);
+        const agreementInfo = {
+            clientName: user?.displayName,
+            clientEmail: user?.email,
+            floor_no: apartment.floor_no,
+            block_name: apartment.block_name,
+            apartment_no: apartment.apartment_no,
+            rent: apartment.rent,
+            apartmentId: apartment._id,
+            status: 'pending'
         }
-        else{
+
+        if (user || user?.email) {
+            axiosSecure.post('/agreement', agreementInfo)
+                .then(res => {
+                    if (res.data.insertedId) {
+                        // axiosSecure.patch(`/apartment/${apartment._id}`, { status: 'Rented' })
+                        // .then(res => {
+                        //     console.log(res.data);
+                        // })
+                        toast.success('Booking successful')
+                    }
+                })
+                .catch(err => {
+                    // console.log(err);
+                    toast.error(err.response.data.message)
+                })
+            // console.log(agreementInfo);
+        }
+        else {
             navigate('/login');
             toast.warning("Before Agreement please login ")
         }

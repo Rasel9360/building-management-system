@@ -27,7 +27,7 @@ const Apartment = () => {
         }
     })
 
-    console.log(data);
+    // console.log(data);
 
     // console.log(count);
     const numberOfPages = Math.ceil(count / itemPerPage)
@@ -35,7 +35,7 @@ const Apartment = () => {
 
     // handle pagination button 
     const handlePagination = (value) => {
-        console.log(value);
+        // console.log(value);
         setCurrentPage(value);
     }
 
