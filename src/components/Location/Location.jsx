@@ -18,8 +18,8 @@ const Location = () => {
             <h2 className='text-4xl font-jura font-bold text-center py-10'>Our Location</h2>
             <div className='md:flex w-10/12 mx-auto pb-20 '>
                 {/* Map */}
-                <div className="md:w-1/2">
-                    <MapContainer style={{ width: '100%', height: '500px' }} center={[23.782738108212616, 90.41799042210799]} zoom={17} scrollWheelZoom={false}>
+                <div className="md:w-1/2 ">
+                    <MapContainer  style={{ width: '100%', height: '500px' ,}} center={[23.782738108212616, 90.41799042210799]} zoom={17} scrollWheelZoom={false}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
