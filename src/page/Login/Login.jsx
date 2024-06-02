@@ -41,7 +41,7 @@ const Login = () => {
     return (
         <div className='flex bg-[#F1FAFE] justify-center items-center min-h-[calc(100vh-68px)] font-serif'>
             <Helmet>
-                <title>Login Page</title>
+                <title>Beverly | Login</title>
             </Helmet>
             <div className='flex w-full border max-w-sm mx-auto overflow-hidden rounded-lg shadow-lg  lg:max-w-4xl '>
                 <div
