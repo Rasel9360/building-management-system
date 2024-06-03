@@ -4,6 +4,7 @@ import Home from "../page/Home/Home";
 import Apartment from "../page/Apartment/Apartment";
 import Login from "../page/Login/Login";
 import Register from "../page/Register/Register";
+import Dashboard from "../MainLaout/Dashboard";
 const Route = createBrowserRouter([
     {
         path: "/",
@@ -27,6 +28,13 @@ const Route = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard> ,
+        children: [
+            
+        ]
+    }
 ]);
 
 export default Route;

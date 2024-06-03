@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 import { toast } from "react-toastify";
+import useAxiosPublic from "../../hook/useAxiosPublic";
 
 const Register = () => {
     const { createUser, updateUser, logOutUser } = useAuth()
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
     const {
         register,
         handleSubmit,
@@ -22,6 +24,14 @@ const Register = () => {
                 updateUser(data.name, data.photo)
                     .then(() => {
                         console.log('user crate');
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email,
+                        }
+                        axiosPublic.post('/users', userInfo)
+                        .then(res => {
+                            console.log(res.data);
+                        })
                     })
                     .catch((error) => console.log(error));
                 toast.success('user create successful')
