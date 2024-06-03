@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 import { toast } from "react-toastify";
 import useAxiosPublic from "../../hook/useAxiosPublic";
+import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
 
 const Register = () => {
     const { createUser, updateUser, logOutUser } = useAuth()
@@ -29,16 +30,16 @@ const Register = () => {
                             email: data.email,
                         }
                         axiosPublic.post('/users', userInfo)
-                        .then(res => {
-                            console.log(res.data);
-                        })
+                            .then(res => {
+                                console.log(res.data);
+                            })
                     })
                     .catch((error) => console.log(error));
                 toast.success('user create successful')
                 logOutUser()
                     .then(() => {
                         navigate('/login')
-                     })
+                    })
                     .catch((error) => console.log(error))
             })
             .catch(err => {
@@ -153,6 +154,20 @@ const Register = () => {
                             </button>
                         </div>
                     </form>
+
+                    <div className='flex items-center justify-between mt-4'>
+                        <span className='w-1/5 border-b  lg:w-1/4'></span>
+
+                        <div className='text-xs text-center text-gray-500 uppercase  hover:underline'>
+                            or login with Google
+                        </div>
+
+                        <span className='w-1/5 border-b dark:border-gray-400 lg:w-1/4'></span>
+                    </div>
+
+                    <div>
+                        <GoogleLogin></GoogleLogin>
+                    </div>
 
                     <div className='flex items-center justify-between mt-4'>
                         <span className='w-1/5 border-b  md:w-1/4'></span>
