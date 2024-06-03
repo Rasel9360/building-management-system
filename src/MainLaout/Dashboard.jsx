@@ -14,7 +14,7 @@ const Dashboard = () => {
                 {/* Sidebar */}
                 <div className={`w-72 ${toggleOpen ? 'hidden' : 'block'} py-4 text-white min-h-screen bg-[#001238]`}>
                     <h1 className="text-3xl text-center font-sev">Dashboard</h1>
-                    <hr />
+                    
 
                     <div className="">
                         {role === 'Admin' && <AdminRoute></AdminRoute>}

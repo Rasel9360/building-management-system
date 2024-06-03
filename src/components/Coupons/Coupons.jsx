@@ -13,7 +13,7 @@ const Coupons = () => {
         }
     })
 
-    console.log(coupon);
+    // console.log(coupon);
 
     return (
         <div className="my-20">
