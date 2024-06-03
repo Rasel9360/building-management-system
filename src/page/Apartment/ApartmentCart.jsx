@@ -20,6 +20,7 @@ const ApartmentCart = ({ apartment }) => {
             apartment_no: apartment.apartment_no,
             rent: apartment.rent,
             apartmentId: apartment._id,
+            date: new Date(),
             status: 'pending'
         }
 

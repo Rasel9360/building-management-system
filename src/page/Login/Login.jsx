@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
 
 const Login = () => {
-    const {loginUser, googleLogin} = useAuth();
+    const {loginUser} = useAuth();
     const {
         register,
         handleSubmit,
