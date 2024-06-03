@@ -2,11 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const AgreementReq = () => {
     const axiosSecure = useAxiosSecure();
 
-    const { data: agreement = [] } = useQuery({
+    const { data: agreement = [], refetch } = useQuery({
         queryKey: ['agreement'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/agreement')
@@ -20,12 +22,46 @@ const AgreementReq = () => {
             .then(res => {
                 console.log(res.data)
                 if (res.data.modifiedCount > 0) {
-                    axiosSecure.patch(`/apartment/${user.apartmentId}`, {status: 'checked'})
+                    axiosSecure.patch(`/apartment/${user.apartmentId}`, { status: 'checked' })
                         .then(res => {
-                            console.log(res.data)
+                            if (res.data.modifiedCount > 0) {
+                                axiosSecure.delete(`/agreement/${user._id}`)
+                                    .then(res => {
+                                        console.log(res.data)
+                                        toast.success('Agreement Accepted Successful')
+                                        refetch();
+                                    })
+                            }
                         })
                 }
             })
+    }
+
+    const handleReject = (user) => {
+        console.log(user);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be reject this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, reject it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/agreement/${user._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Rejected!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            refetch();
+                        }
+                    })
+            }
+        });
     }
 
     return (
@@ -87,7 +123,9 @@ const AgreementReq = () => {
                                             </button>
                                         </th>
                                         <th>
-                                            <button className="btn-circle  bg-red-600 bg-opacity-20 flex  justify-center items-center text-3xl text-red-700">
+                                            <button
+                                                onClick={() => handleReject(user)}
+                                                className="btn-circle  bg-red-600 bg-opacity-20 flex  justify-center items-center text-3xl text-red-700">
                                                 <MdDeleteForever />
                                             </button>
                                         </th>
