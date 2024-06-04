@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
+import { toast } from "react-toastify";
 
 const Announcement = () => {
     const axiosSecure = useAxiosSecure();
@@ -7,6 +8,7 @@ const Announcement = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm()
 
@@ -18,9 +20,12 @@ const Announcement = () => {
         }
 
         axiosSecure.post('/announcement', announcementInfo)
-        .then(res => {
-            console.log(res.data);
-        })
+            .then(res => {
+                if (res.data.insertedId) {
+                    toast.success('Announcement added successful');
+                    reset();
+                }
+            })
     }
 
     return (
@@ -38,7 +43,7 @@ const Announcement = () => {
                                 placeholder="Title"
                                 {...register("title", { required: true })}
                                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-                                {errors.title && <span className="text-red-600 text-sm">Announcement Title is required</span>}
+                            {errors.title && <span className="text-red-600 text-sm">Announcement Title is required</span>}
                         </div>
                         <div>
                             <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Announcement Description</label>
@@ -48,7 +53,7 @@ const Announcement = () => {
                                 {...register("description", { required: true })}
                                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none font-medium focus:ring"
                             ></textarea>
-                             {errors.description && <span className="text-red-600 text-sm">Announcement description is required</span>}
+                            {errors.description && <span className="text-red-600 text-sm">Announcement description is required</span>}
                         </div>
                     </div>
                     <div className="flex justify-end mt-6">
