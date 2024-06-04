@@ -9,13 +9,13 @@ const AdminRoute = () => {
         <div>
             <ul className="">
                 <li>
-                    <MenuItem label='Admin Profile' address='home' icon={CgProfile}></MenuItem>
+                    <MenuItem label='Admin Profile' address='admin-profile' icon={CgProfile}></MenuItem>
                 </li>
                 <li>
                     <MenuItem label='Manage Member' address='manage-member' icon={FaUsers}></MenuItem>
                 </li>
                 <li>
-                    <MenuItem label='Announcement' address='announcement' icon={TfiAnnouncement}></MenuItem>
+                    <MenuItem label='Announcement' address='make-announcement' icon={TfiAnnouncement}></MenuItem>
                 </li>
                 <li>
                     <MenuItem label='Agreement Requests' address='agreement' icon={BiSolidBadgeDollar}></MenuItem>

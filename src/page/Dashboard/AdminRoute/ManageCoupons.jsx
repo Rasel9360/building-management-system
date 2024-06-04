@@ -2,8 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
+import AddCoupon from "./AddCoupon";
+import { useState } from "react";
 
 const ManageCoupons = () => {
+    const [isOpen, setIsEditModalOpen] = useState(false);
     const axiosSecure = useAxiosSecure();
 
     const { data: coupons = [], refetch } = useQuery({
@@ -49,8 +52,20 @@ const ManageCoupons = () => {
     return (
         <div>
             <h1 className="text-4xl font-bold font-sev text-center mt-10">Manage Coupons</h1>
-            <div className="lg:w-11/12 mx-auto bg-base-100 p-10 rounded-lg mb-10">
+            <div>
 
+            </div>
+            <div className="lg:w-11/12 mx-auto bg-base-100 p-10 rounded-lg mb-10">
+                <button
+                    onClick={() => setIsEditModalOpen(true)}
+                    className="btn border-0 w-[15%] mx-auto border-b-4 text-lg btn-outline text-[#001238] uppercase bg-[#EBF8FE]"
+                >Add Coupon
+                    <AddCoupon
+                        setIsEditModalOpen={setIsEditModalOpen}
+                        isOpen={isOpen}
+                        refetch={refetch}
+                    ></AddCoupon>
+                </button>
                 <div className="overflow-x-auto border rounded-t-xl mt-8">
                     <table className="table">
                         {/* head */}

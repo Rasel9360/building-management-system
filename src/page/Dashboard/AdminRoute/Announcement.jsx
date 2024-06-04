@@ -30,7 +30,7 @@ const Announcement = () => {
 
     return (
         <div className=" w-11/12 lg:w-2/3 mx-auto">
-            <div className="shadow-xl p-4 lg:p-10 mt-20 rounded-md">
+            <div className="shadow-xl p-4 bg-[#EBF8FE] lg:p-10 mt-20 rounded-md">
                 <h1 className="text-4xl font-bold font-sev text-center mb-6">Announcement</h1>
                 <form
                     onSubmit={handleSubmit(onSubmit)}

@@ -3,6 +3,7 @@ import DashboardNav from "../components/DashboardNav";
 import { useState } from "react";
 import useRole from "../hook/useRole";
 import AdminRoute from "../page/Dashboard/AdminRoute/AdminRoute";
+import UserRoute from "../page/Dashboard/UserRoute/UserRoute";
 
 const Dashboard = () => {
     const [toggleOpen, setToggleOpen] = useState(false);
@@ -14,10 +15,11 @@ const Dashboard = () => {
                 {/* Sidebar */}
                 <div className={`w-72 ${toggleOpen ? 'hidden' : 'block'} py-4 text-white min-h-screen bg-[#001238]`}>
                     <h1 className="text-3xl text-center font-sev">Dashboard</h1>
-                    
+
 
                     <div className="">
                         {role === 'Admin' && <AdminRoute></AdminRoute>}
+                        {role === 'User' && <UserRoute></UserRoute>}
                     </div>
 
                 </div>

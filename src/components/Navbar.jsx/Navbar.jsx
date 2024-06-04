@@ -66,12 +66,12 @@ const Navbar = () => {
                         <div title={user?.displayName} className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-12 rounded-full hover:border-2 hover:border-orange-600 ">
-                                    <img alt="user image" src={user?.photoURL}/>
+                                    <img alt="user image" referrerPolicy="no-referrer" src={user?.photoURL}/>
                                 </div>
                             </div>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-black font-jura text-lg rounded-box w-52">
                                 <li><a>{user?.displayName}</a></li>
-                                <li><Link to='/dashboard/home'>Dashboard</Link></li>
+                                <li><Link to='/dashboard'>Dashboard</Link></li>
                                 <li><button onClick={handleLogOut}>Logout</button></li>
                             </ul>
                         </div>
