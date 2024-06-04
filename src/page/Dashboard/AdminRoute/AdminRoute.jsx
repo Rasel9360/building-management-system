@@ -9,7 +9,7 @@ const AdminRoute = () => {
         <div>
             <ul className="">
                 <li>
-                    <MenuItem label='Admin Profile' address='admin-profile' icon={CgProfile}></MenuItem>
+                    <MenuItem label='Admin Profile' address='home' icon={CgProfile}></MenuItem>
                 </li>
                 <li>
                     <MenuItem label='Manage Member' address='manage-member' icon={FaUsers}></MenuItem>

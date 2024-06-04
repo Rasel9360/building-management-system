@@ -38,7 +38,7 @@ const Route = createBrowserRouter([
         element: <Dashboard></Dashboard> ,
         children: [
             {
-                path: 'admin-profile',
+                path: 'home',
                 element: <AdminProfile></AdminProfile>
             },
             {

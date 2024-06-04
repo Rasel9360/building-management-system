@@ -17,20 +17,16 @@ const AgreementReq = () => {
     })
 
     const handleAccept = (user) => {
-        console.log(user);
-        axiosSecure.patch(`/user/${user.clientEmail}`, { role: 'member' })
+        // console.log(user);
+        axiosSecure.patch(`/user/${user.clientEmail}`, { role: 'Member' })
             .then(res => {
                 console.log(res.data)
                 if (res.data.modifiedCount > 0) {
-                    axiosSecure.patch(`/apartment/${user.apartmentId}`, { status: 'checked' })
+                    axiosSecure.patch(`/agreement/${user._id}`, { status: 'checked', acceptDate: new Date() })
                         .then(res => {
                             if (res.data.modifiedCount > 0) {
-                                axiosSecure.delete(`/agreement/${user._id}`)
-                                    .then(res => {
-                                        console.log(res.data)
-                                        toast.success('Agreement Accepted Successful')
-                                        refetch();
-                                    })
+                                toast.success('Agreement Accepted Successful')
+                                refetch();
                             }
                         })
                 }
@@ -38,7 +34,7 @@ const AgreementReq = () => {
     }
 
     const handleReject = (user) => {
-        console.log(user);
+        // console.log(user);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be reject this!",
@@ -49,9 +45,10 @@ const AgreementReq = () => {
             confirmButtonText: "Yes, reject it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/agreement/${user._id}`)
+                axiosSecure.patch(`/agreement/${user._id}`, { status: 'checked'})
                     .then(res => {
-                        if (res.data.deletedCount > 0) {
+                        if (res.data.modifiedCount > 0) {
+                            console.log(res.data);
                             Swal.fire({
                                 title: "Rejected!",
                                 text: "Your file has been deleted.",
@@ -90,7 +87,7 @@ const AgreementReq = () => {
                             {/* row 1 */}
                             {
                                 agreement.map((user, i) =>
-                                    <tr key={user._id} className="text-lg font-jura text-black text-center">
+                                    user.status === 'pending' && <tr key={user._id} className="text-lg font-jura text-black text-center">
                                         <th>
                                             {i + 1}
                                         </th>
@@ -129,7 +126,9 @@ const AgreementReq = () => {
                                                 <MdDeleteForever />
                                             </button>
                                         </th>
-                                    </tr>)
+                                    </tr>
+
+                                )
                             }
                         </tbody>
                     </table>

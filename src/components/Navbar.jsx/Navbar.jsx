@@ -71,7 +71,7 @@ const Navbar = () => {
                             </div>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-black font-jura text-lg rounded-box w-52">
                                 <li><a>{user?.displayName}</a></li>
-                                <li><Link to='/dashboard'>Dashboard</Link></li>
+                                <li><Link to='/dashboard/home'>Dashboard</Link></li>
                                 <li><button onClick={handleLogOut}>Logout</button></li>
                             </ul>
                         </div>
