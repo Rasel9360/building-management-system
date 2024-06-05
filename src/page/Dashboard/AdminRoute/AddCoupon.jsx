@@ -124,7 +124,6 @@ const AddCoupon = ({ setIsEditModalOpen, isOpen, refetch }) => {
                                         </div>
                                         <div className="flex justify-end mt-6">
                                             <button
-                                                // onClick={handleAddToAgreement}
                                                 className="btn border-0 w-[20%] mx-auto border-b-4 text-lg btn-outline text-[#001238] uppercase bg-[#EBF8FE]">Save
                                             </button>
                                         </div>

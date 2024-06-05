@@ -13,6 +13,10 @@ import ManageCoupons from "../page/Dashboard/AdminRoute/ManageCoupons";
 import UserProfile from "../page/Dashboard/UserRoute/UserProfile";
 import UserAnnouncement from "../page/Dashboard/UserRoute/UserAnnouncement";
 import MemberProfile from "../page/Dashboard/MemberRoute/MemberProfile";
+import MemberAnnouncement from "../page/Dashboard/MemberRoute/MemberAnnouncement";
+import PaymentHistory from "../page/Dashboard/MemberRoute/PaymentHistory";
+import MakePayment from "../page/Dashboard/MemberRoute/MakePayment";
+import Payment from "../page/Dashboard/MemberRoute/Payment";
 const Route = createBrowserRouter([
     {
         path: "/",
@@ -73,6 +77,22 @@ const Route = createBrowserRouter([
             {
                 path: 'member-profile',
                 element: <MemberProfile></MemberProfile>
+            },
+            {
+                path: 'member-announcement',
+                element: <MemberAnnouncement></MemberAnnouncement>
+            },
+            {
+                path: 'payment-history',
+                element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: 'make-payment',
+                element: <MakePayment></MakePayment>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             }
         ]
     }

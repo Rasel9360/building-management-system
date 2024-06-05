@@ -78,7 +78,7 @@ const AgreementReq = () => {
                                 <th>Block Name</th>
                                 <th>Room No</th>
                                 <th>Rent</th>
-                                <th>Date</th>
+                                <th>Req Date</th>
                                 <th>Accept</th>
                                 <th>Reject</th>
                             </tr>
