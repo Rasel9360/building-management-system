@@ -12,6 +12,7 @@ import AgreementReq from "../page/Dashboard/AdminRoute/AgreementReq";
 import ManageCoupons from "../page/Dashboard/AdminRoute/ManageCoupons";
 import UserProfile from "../page/Dashboard/UserRoute/UserProfile";
 import UserAnnouncement from "../page/Dashboard/UserRoute/UserAnnouncement";
+import MemberProfile from "../page/Dashboard/MemberRoute/MemberProfile";
 const Route = createBrowserRouter([
     {
         path: "/",
@@ -37,7 +38,7 @@ const Route = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard> ,
+        element: <Dashboard></Dashboard>,
         children: [
             {
                 path: 'admin-profile',
@@ -67,6 +68,11 @@ const Route = createBrowserRouter([
             {
                 path: 'user-announcement',
                 element: <UserAnnouncement></UserAnnouncement>
+            },
+            // member route
+            {
+                path: 'member-profile',
+                element: <MemberProfile></MemberProfile>
             }
         ]
     }

@@ -1,13 +1,13 @@
 import { CgProfile } from "react-icons/cg";
-import { TfiAnnouncement } from "react-icons/tfi";
 import MenuItem from "../MenuItem/MenuItem";
+import { TfiAnnouncement } from "react-icons/tfi";
 
-const UserRoute = () => {
+const MemberRoute = () => {
     return (
         <div>
             <ul className="">
                 <li>
-                    <MenuItem label='My Profile' address='user-profile' icon={CgProfile}></MenuItem>
+                    <MenuItem label='My Profile' address='member-profile' icon={CgProfile}></MenuItem>
                 </li>
                 <li>
                     <MenuItem label='Announcements' address='user-announcement' icon={TfiAnnouncement}></MenuItem>
@@ -17,4 +17,4 @@ const UserRoute = () => {
     );
 };
 
-export default UserRoute;
+export default MemberRoute;
