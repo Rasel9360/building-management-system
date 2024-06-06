@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
 import useAuth from "../../../hook/useAuth";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const MakePayment = () => {
     const axiosSecure = useAxiosSecure();
     const { user, loading } = useAuth();
+    const navigate = useNavigate();
 
 
     const { data: agreement = [] } = useQuery({
@@ -17,13 +19,35 @@ const MakePayment = () => {
         }
     })
 
-    console.log(agreement);
+    // console.log(agreement);
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm()
+
+
+    const onSubmit = (data) => {
+        // console.log(data)
+        axiosSecure.patch(`/agreement/${agreement[0]?._id}`, { paymentDate: data.date })
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    navigate('/dashboard/payment')
+                }
+            })
+    }
+
+
 
     return (
         <div>
             <section className="w-11/12 mt-10 md:mt-14 md:max-w-4xl p-6  mx-auto bg-[#EBF8FE] rounded-md shadow-md dark:bg-gray-800">
                 <h2 className="text-2xl mb-5 font-bold capitalize font-sev text-center">Make Payment</h2>
-                <form>
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                >
                     <div className="grid grid-cols-1 gap-6 mt-4 font-jura text-lg font-bold sm:grid-cols-2">
                         <div>
                             <label className="text-gray-700 dark:text-gray-200" htmlFor="username">Name</label>
@@ -81,13 +105,15 @@ const MakePayment = () => {
                         </div>
                         <div className="sm:col-span-2">
                             <label className="text-gray-700 dark:text-gray-200" htmlFor="date">Date</label>
-                            <input id="date" type="date" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                            <input
+                                {...register("date", { required: true })}
+                                id="date"
+                                type="date"
+                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                         </div>
                     </div>
                     <div className="flex justify-end mt-6">
-                        <Link to='/dashboard/payment'>
-                            <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600 text-lg font-jura font-bold">Pay</button>
-                        </Link>
+                        <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600 text-lg font-jura font-bold">Pay</button>
                     </div>
                 </form>
             </section>

@@ -17,6 +17,7 @@ import MemberAnnouncement from "../page/Dashboard/MemberRoute/MemberAnnouncement
 import PaymentHistory from "../page/Dashboard/MemberRoute/PaymentHistory";
 import MakePayment from "../page/Dashboard/MemberRoute/MakePayment";
 import Payment from "../page/Dashboard/MemberRoute/Payment";
+import PrivateRoute from "./PrivateRoute";
 const Route = createBrowserRouter([
     {
         path: "/",
@@ -42,57 +43,59 @@ const Route = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: 'admin-profile',
-                element: <AdminProfile></AdminProfile>
+                element: <PrivateRoute><AdminProfile></AdminProfile></PrivateRoute>
             },
             {
                 path: 'manage-member',
-                element: <ManageMember></ManageMember>
+                element: <PrivateRoute>
+                    <ManageMember></ManageMember>
+                </PrivateRoute>
             },
             {
                 path: 'make-announcement',
-                element: <Announcement></Announcement>
+                element: <PrivateRoute><Announcement></Announcement></PrivateRoute>
             },
             {
                 path: 'agreement',
-                element: <AgreementReq></AgreementReq>
+                element: <PrivateRoute><AgreementReq></AgreementReq></PrivateRoute>
             },
             {
                 path: 'manage-coupons',
-                element: <ManageCoupons></ManageCoupons>
+                element: <PrivateRoute><ManageCoupons></ManageCoupons></PrivateRoute>
             },
             // user route
             {
                 path: 'user-profile',
-                element: <UserProfile></UserProfile>
+                element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
             },
             {
                 path: 'user-announcement',
-                element: <UserAnnouncement></UserAnnouncement>
+                element: <PrivateRoute><UserAnnouncement></UserAnnouncement></PrivateRoute>
             },
             // member route
             {
                 path: 'member-profile',
-                element: <MemberProfile></MemberProfile>
+                element: <PrivateRoute><MemberProfile></MemberProfile></PrivateRoute>
             },
             {
                 path: 'member-announcement',
-                element: <MemberAnnouncement></MemberAnnouncement>
+                element: <PrivateRoute><MemberAnnouncement></MemberAnnouncement></PrivateRoute>
             },
             {
                 path: 'payment-history',
-                element: <PaymentHistory></PaymentHistory>
+                element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
             },
             {
                 path: 'make-payment',
-                element: <MakePayment></MakePayment>
+                element: <PrivateRoute><MakePayment></MakePayment></PrivateRoute>
             },
             {
                 path: 'payment',
-                element: <Payment></Payment>
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>
             }
         ]
     }

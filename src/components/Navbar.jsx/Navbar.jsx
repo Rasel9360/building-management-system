@@ -3,12 +3,16 @@ import { FaHome } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../hook/useAuth";
+import { MdLogin } from "react-icons/md";
+import { BiLogOut } from "react-icons/bi";
+import useRole from "../../hook/useRole";
 // import { FaCartPlus } from "react-icons/fa";
 
 
 const Navbar = () => {
     const { user, logOutUser } = useAuth();
     // const [isAdmin] = useAdmin();
+    const [role] = useRole();
 
     const handleLogOut = () => {
         logOutUser()
@@ -30,12 +34,6 @@ const Navbar = () => {
             className={({ isActive }) => isActive ? 'border-b-2 border-orange-500 pb-1 font-bold' : ''}
             to='/apartment'>Apartments
         </NavLink></li>
-
-
-        {/* {
-            user ? <><button onClick={handleLogOut}>LOGOUT</button></> :
-                <li><NavLink to='/login'>LOGIN</NavLink></li>
-        } */}
 
     </>
 
@@ -71,12 +69,16 @@ const Navbar = () => {
                             </div>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-black font-jura text-lg rounded-box w-52">
                                 <li><a>{user?.displayName}</a></li>
-                                <li><Link to='/dashboard'>Dashboard</Link></li>
-                                <li><button onClick={handleLogOut}>Logout</button></li>
+                                {/* <li><Link to='/dashboard'>Dashboard</Link></li> */}
+                                {role === 'Admin' && <li><Link to='/dashboard/admin-profile'>Dashboard</Link></li>}
+                                {role === 'Member' && <li><Link to='/dashboard/member-profile'>Dashboard</Link></li>}
+                                {role === 'User' && <li><Link to='/dashboard/user-profile'>Dashboard</Link></li>}
+
+                                <li><button onClick={handleLogOut}><p className="flex items-center gap-1"><BiLogOut />Logout</p></button></li>
                             </ul>
                         </div>
                     </> :
-                        <ul><li><NavLink to='/login'>Login</NavLink></li></ul>
+                        <ul><li><NavLink to='/login'><p className="flex items-center gap-2"><MdLogin />Login</p></NavLink></li></ul>
                 }
 
             </div>

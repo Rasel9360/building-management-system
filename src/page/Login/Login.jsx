@@ -1,12 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 import { toast } from "react-toastify";
 import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
 
 const Login = () => {
-    const {loginUser} = useAuth();
+    const { loginUser } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -17,13 +19,14 @@ const Login = () => {
     const handleLogin = (data) => {
         // console.log(data);
         loginUser(data.email, data.password)
-        .then(res => {
-            // console.log(res.user);
-            toast.success('Sign In Successful')
-        })
-        .catch(err => {
-            toast.error("Please enter valid info")
-        })
+            .then(res => {
+                // console.log(res.user);
+                toast.success('Sign In Successful')
+                navigate(location.state ? location.state : '/')
+            })
+            .catch(err => {
+                toast.error("Please enter valid info")
+            })
         reset();
     }
 

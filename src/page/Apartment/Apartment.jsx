@@ -3,6 +3,7 @@ import useAxiosPublic from "../../hook/useAxiosPublic";
 import ApartmentCart from "./ApartmentCart";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import SkeletonCard from "../../components/SkeletonCard";
 
 const Apartment = () => {
     const axiosPublic = useAxiosPublic();
@@ -10,7 +11,7 @@ const Apartment = () => {
     const [count, setCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const { data: apartment = [] } = useQuery({
+    const { data: apartment = [], isLoading } = useQuery({
         queryKey: ['apartments', currentPage, itemPerPage],
         queryFn: async () => {
             const { data } = await axiosPublic.get(`/apartment?page=${currentPage}&size=${itemPerPage}`);
@@ -45,6 +46,7 @@ const Apartment = () => {
             <div className="bg-[#EBF8FE] ">
                 <h2 className="text-2xl lg:text-5xl text-center font-sev pt-10">Book Your Favorite Apartment</h2>
                 <div className="w-10/12 mx-auto pb-20 pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {isLoading && <SkeletonCard card={6}></SkeletonCard>}
                     {
                         apartment.map((apartment) => <ApartmentCart
                             key={apartment._id}

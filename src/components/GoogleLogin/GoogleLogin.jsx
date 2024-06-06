@@ -1,10 +1,13 @@
 import { toast } from "react-toastify";
 import useAuth from "../../hook/useAuth";
 import useAxiosPublic from "../../hook/useAxiosPublic";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const GoogleLogin = () => {
     const { googleLogin } = useAuth();
     const axiosPublic = useAxiosPublic();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleGoogleLogin = () => {
         googleLogin()
@@ -20,6 +23,7 @@ const GoogleLogin = () => {
                         console.log(res.data);
                     })
                 toast.success('Sign With Google In Successful')
+                navigate(location.state ? location.state : '/')
             })
             .catch(err => {
                 console.log(err);
