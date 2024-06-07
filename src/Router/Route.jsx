@@ -18,10 +18,12 @@ import PaymentHistory from "../page/Dashboard/MemberRoute/PaymentHistory";
 import MakePayment from "../page/Dashboard/MemberRoute/MakePayment";
 import Payment from "../page/Dashboard/MemberRoute/Payment";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../page/ErrorPage/ErrorPage";
 const Route = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",

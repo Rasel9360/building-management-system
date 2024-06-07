@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 
-const ApartmentCart = ({ apartment }) => {
+const ApartmentCart = ({ apartment, refetch }) => {
     const { user } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
@@ -28,11 +28,12 @@ const ApartmentCart = ({ apartment }) => {
             axiosSecure.post('/agreement', agreementInfo)
                 .then(res => {
                     if (res.data.insertedId) {
-                        // axiosSecure.patch(`/apartment/${apartment._id}`, { status: 'Rented' })
-                        // .then(res => {
-                        //     console.log(res.data);
-                        // })
+                        axiosSecure.patch(`/apartment/${apartment._id}`, { status: 'Unavailable' })
+                            .then(res => {
+                                console.log(res.data);
+                            })
                         toast.success('Booking successful')
+                        
                     }
                 })
                 .catch(err => {
@@ -45,6 +46,7 @@ const ApartmentCart = ({ apartment }) => {
             navigate('/login');
             toast.warning("Before Agreement please login ")
         }
+        refetch();
     }
 
     return (
@@ -61,8 +63,9 @@ const ApartmentCart = ({ apartment }) => {
                 </div>
                 <h3 className="text-[#03A9F4] text-3xl font-bold">$ {apartment?.rent} / <span className="text-xl text-[#999999]">Month</span></h3>
                 <button
+                    disabled={apartment.status === "Unavailable"}
                     onClick={handleAddToAgreement}
-                    className="btn border-0 w-1/2 mx-auto border-b-4 text-lg btn-outline text-[#001238] uppercase bg-[#EBF8FE]">Agreement</button>
+                    className="btn border-0 w-1/2 mx-auto border-b-4 text-lg btn-outline text-[#001238] uppercase bg-[#EBF8FE] disabled:bg-[#EBF8FE] disabled:text-[#001238]">{apartment.status === "Unavailable" ? 'Unavailable' : 'Agreement'}</button>
             </div>
         </div>
     );

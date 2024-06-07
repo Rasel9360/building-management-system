@@ -11,7 +11,7 @@ const Apartment = () => {
     const [count, setCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const { data: apartment = [], isLoading } = useQuery({
+    const { data: apartment = [], isLoading, refetch } = useQuery({
         queryKey: ['apartments', currentPage, itemPerPage],
         queryFn: async () => {
             const { data } = await axiosPublic.get(`/apartment?page=${currentPage}&size=${itemPerPage}`);
@@ -51,6 +51,7 @@ const Apartment = () => {
                         apartment.map((apartment) => <ApartmentCart
                             key={apartment._id}
                             apartment={apartment}
+                            refetch={refetch}
                         ></ApartmentCart>)
                     }
                 </div>
