@@ -5,10 +5,10 @@ RESIDENCE, a comprehensive platform designed to streamline the management of bui
 
 ## Admin Credentials
 - **Username:** rasel.ph@gmail.com
-- **Password:** admin123
+- **Password:** 123Qw@
 
 ## Live Site URL
-[BEVERLY RESIDENCE](https://www.example.com)
+[BEVERLY RESIDENCE](https://assignment-twelve-1044b.web.app)
 
 ## Features
 
@@ -46,7 +46,7 @@ RESIDENCE, a comprehensive platform designed to streamline the management of bui
 
 To get started with the BEVERLY RESIDENCE, follow these steps:
 
-1. Visit the [live site](https://www.example.com).
+1. Visit the [live site](https://assignment-twelve-1044b.web.app).
 2. Log in using the admin credentials provided above.
 3. Navigate through the dashboard to explore the various features.
 6. Make secure payments through the 'Payments' section.
@@ -60,4 +60,4 @@ To get started with the BEVERLY RESIDENCE, follow these steps:
 
 
 
-Thank you for using the Building Management System!
+Thank you for using the Building Management System by BEVERLY RESIDENCE!

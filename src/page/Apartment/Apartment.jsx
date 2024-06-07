@@ -70,7 +70,7 @@ const Apartment = () => {
                         pages.map(btnNum => <button
                             onClick={() => handlePagination(btnNum)}
                             key={btnNum}
-                            type="button" title="Page 1" className={`inline-flex ${currentPage === btnNum ? 'bg-blue-900 text-white' : ''} items-center justify-center w-10 h-10 bg-base-100  font-semibold border rounded shadow-md`}>{btnNum}</button>)
+                            type="button" className={`inline-flex ${currentPage === btnNum ? 'bg-blue-900 text-white' : ''} items-center justify-center w-10 h-10 bg-base-100  font-semibold border rounded shadow-md`}>{btnNum}</button>)
                     }
                     {/* next button */}
                     <button
