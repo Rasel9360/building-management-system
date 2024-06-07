@@ -4,8 +4,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 import { toast } from "react-toastify";
 import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
+import { IoEye, IoEyeOff } from "react-icons/io5";
+import { useState } from "react";
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false)
     const { loginUser } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
@@ -70,7 +73,7 @@ const Login = () => {
                             {errors.email && <span className="text-red-600">Email is required</span>}
                         </div>
 
-                        <div className='mt-4'>
+                        <div className='mt-4 relative'>
                             <div className='flex justify-between'>
                                 <label
                                     className='block mb-2 text-lg font-medium  '
@@ -86,8 +89,11 @@ const Login = () => {
                                 {...register("password", { required: true })}
                                 placeholder="Enter password"
                                 className='block w-full px-4 py-2   border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                                type='password'
+                                type={showPassword ? "text" : "password"}
                             />
+                            <span className="absolute top-[63%] right-3 cursor-pointer text-xl" onClick={() => setShowPassword(!showPassword)}>
+                                {showPassword ? <IoEyeOff></IoEyeOff> : <IoEye />}
+                            </span>
                             {errors.password && <span className="text-red-600">Password is required</span>}
                         </div>
                         <div className='mt-6'>
