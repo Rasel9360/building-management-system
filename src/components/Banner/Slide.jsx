@@ -1,4 +1,4 @@
-const Slide = ({ image, text }) => {
+const Slide = ({ image, text, description }) => {
   return (
     <div
       className='w-full bg-center bg-cover h-[24rem] lg:h-[36rem]'
@@ -12,6 +12,7 @@ const Slide = ({ image, text }) => {
             {text}
           </h1>
           <br />
+          <p className="text-white font-jura text-2xl font-bold">{description}</p>
         </div>
       </div>
     </div>

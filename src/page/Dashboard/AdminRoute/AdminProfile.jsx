@@ -81,7 +81,7 @@ const AdminProfile = () => {
                 </div>
             </section>
             <div className="  mt-14 w-11/12 md:w-1/2 mx-auto p-6 bg-[#EBF8FE] shadow-md rounded-xl ">
-                <img src={user?.photoURL} alt="user image" referrerPolicy="no-referrer" className="w-32 h-32 mx-auto rounded-full bg-gray-500 aspect-square border-4 mb-4 text-blue-950 border-white shadow-xl" />
+                <img src={user?.photoURL} alt="user image" referrerPolicy="no-referrer" className="w-32 h-32 mx-auto object-cover object-center rounded-full bg-gray-500 aspect-square border-4 mb-4 text-blue-950 border-white shadow-xl" />
                 <div className="space-y-4 text-center divide-y ">
                     <div className="my-2 space-y-1">
                         <h2 className="text-4xl font-bold font-sev ">{user?.displayName}</h2>

@@ -10,6 +10,7 @@ import Slide from './Slide';
 import image1 from '../../assets/1.jpg';
 import image2 from '../../assets/2.jpg';
 import image3 from '../../assets/3.jpg';
+import image4 from '../../assets/banner.jpg';
 
 const Banner = () => {
 
@@ -29,6 +30,9 @@ const Banner = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
+                <SwiperSlide>
+                    <Slide image={image4} text='BEVERLY RESIDENCE' description='Plot # 17/A, Road # 126, Gulshan, Dhaka - 1212'></Slide>
+                </SwiperSlide>
                 <SwiperSlide>
                     <Slide image={image1} text='Find Your Dream Home'></Slide>
                 </SwiperSlide>

@@ -1,8 +1,63 @@
-# React + Vite
+# Building Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the BEVERLY
+RESIDENCE, a comprehensive platform designed to streamline the management of buildings, apartments, and facilities. This system provides an efficient way to manage rentals, maintenance requests, payments, and more.
 
-Currently, two official plugins are available:
+## Admin Credentials
+- **Username:** rasel.ph@gmail.com
+- **Password:** admin123
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Site URL
+[BEVERLY RESIDENCE](https://www.example.com)
+
+## Features
+
+1. **User-Friendly Interface:**
+   - Intuitive and easy-to-navigate interface for both admins and users.
+
+2. **Real-Time Availability:**
+   - Check the real-time availability of rooms and apartments.
+
+3. **Online Payments:**
+   - Secure online payment options for rent and other services.
+
+4. **Maintenance Requests:**
+   - Submit and track maintenance requests effortlessly.
+
+5. **Automated Notifications:**
+   - Receive automated notifications for important updates and reminders.
+
+6. **Profile Management:**
+   - Update personal information and view rental history in user profiles.
+
+7. **Rental Agreements:**
+   - View and renew rental agreements online.
+
+8. **Security Features:**
+   - Advanced security measures to protect user data and transactions.
+
+9. **Customer Support:**
+   - Easy access to customer support via email, phone, and live chat.
+
+10. **Reporting and Analytics:**
+    - Generate reports and access analytics for better management insights.
+
+## Getting Started
+
+To get started with the BEVERLY RESIDENCE, follow these steps:
+
+1. Visit the [live site](https://www.example.com).
+2. Log in using the admin credentials provided above.
+3. Navigate through the dashboard to explore the various features.
+6. Make secure payments through the 'Payments' section.
+
+## Technology used
+- Frontend:React.js
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Authentication: JWT (JSON Web Tokens) and firebase;
+- Additional Libraries: react-router-dom, axios, react-tostyphy, react-icon, headlessui react ,tanstack/react-query, lottie-react, react-awesome-reveal , react-helmet-async, react-hook-form, react-spinners and more
+
+
+
+Thank you for using the Building Management System!

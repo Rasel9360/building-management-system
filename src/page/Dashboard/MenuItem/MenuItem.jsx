@@ -6,7 +6,7 @@ const MenuItem = ({ label, address, icon: Icon }) => {
             to={address}
             end
             className={({ isActive }) =>
-                `flex items-center py-2 my-5 pl-5  transition-colors duration-300 transform  font-jura font-bold text-lg ${isActive ? 'bg-orange-600' : ''
+                `flex items-center py-2 my-1  pl-5  transition-colors duration-300 transform  font-jura font-bold text-lg ${isActive ? 'bg-orange-600' : ''
                 }`
             }
         >
