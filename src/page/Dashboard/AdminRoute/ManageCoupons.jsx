@@ -4,12 +4,14 @@ import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import AddCoupon from "./AddCoupon";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 
 const ManageCoupons = () => {
     const [isOpen, setIsEditModalOpen] = useState(false);
     const axiosSecure = useAxiosSecure();
 
-    const { data: coupons = [], refetch } = useQuery({
+    const { data: coupons = [], refetch, isLoading } = useQuery({
         queryKey: ['coupons'],
         queryFn: async () => {
             const res = await axiosSecure.get('/coupons')
@@ -47,10 +49,15 @@ const ManageCoupons = () => {
         });
     }
 
+    if (isLoading) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
+
     // BMSVIP	Exclusive 20% discount for VIP members. 20 %  11/30/2024
 
     return (
         <div>
+            <Helmet><title>Admin | Manage Coupon</title></Helmet>
             <h1 className="text-4xl font-bold font-sev text-center mt-10">Manage Coupons</h1>
             <div>
 

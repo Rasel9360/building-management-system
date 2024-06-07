@@ -3,6 +3,8 @@ import useAxiosSecure from "../../../hook/useAxiosSecure";
 import useAuth from "../../../hook/useAuth";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import LoadingSpinner from "../../../components/LoadingSpinner";
+import { Helmet } from "react-helmet-async";
 
 const MakePayment = () => {
     const axiosSecure = useAxiosSecure();
@@ -10,7 +12,7 @@ const MakePayment = () => {
     const navigate = useNavigate();
 
 
-    const { data: agreement = [] } = useQuery({
+    const { data: agreement = [] , isLoading} = useQuery({
         queryKey: ['agreement', user?.email],
         enabled: !loading && !!user?.email,
         queryFn: async () => {
@@ -39,10 +41,13 @@ const MakePayment = () => {
             })
     }
 
-
+    if(isLoading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div>
+            <Helmet><title>Member | Make Payment</title></Helmet>
             <section className="w-11/12 mt-10 md:mt-14 md:max-w-4xl p-6  mx-auto bg-[#EBF8FE] rounded-md shadow-md dark:bg-gray-800">
                 <h2 className="text-2xl mb-5 font-bold capitalize font-sev text-center">Make Payment</h2>
                 <form

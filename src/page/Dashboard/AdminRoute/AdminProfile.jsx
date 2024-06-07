@@ -1,18 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hook/useAuth";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
-import { MdBedroomParent, MdOutlineBedroomChild, MdOutlineRestaurantMenu } from "react-icons/md";
-import { FaTruck, FaUserCheck, FaUsers } from "react-icons/fa";
-import { GiWallet } from "react-icons/gi";
+import { MdBedroomParent, MdOutlineBedroomChild } from "react-icons/md";
+import {  FaUserCheck, FaUsers } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { RiContractFill } from "react-icons/ri";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 
 const AdminProfile = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
 
-    const { data: stats } = useQuery({
+    const { data: stats, isLoading } = useQuery({
         queryKey: ['admin-stats'],
         queryFn: async () => {
             const res = await axiosSecure.get('/admin-stat');
@@ -21,11 +21,15 @@ const AdminProfile = () => {
         }
     })
 
-    console.log(stats);
+    // console.log(stats);
+    if(isLoading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div>
             <Helmet>Admin | Profile</Helmet>
+            
             <section className="w-11/12 mt-6 mx-auto ">
                 <div className=" grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-3 font-serif font-medium">
                     <div className="flex p-4 space-x-4 rounded-lg md:space-x-2  bg-gradient-to-r from-[#BB34F5] to-[#FCDBFF] text-white ">

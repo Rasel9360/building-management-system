@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import { TfiAnnouncement } from "react-icons/tfi";
+import LoadingSpinner from "../LoadingSpinner";
 
 
 const AnnouncementCart = () => {
     const axiosSecure = useAxiosSecure();
 
-    const { data: announcements = [] } = useQuery({
+    const { data: announcements = [], isLoading } = useQuery({
         queryKey: ['announcement'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/announcement')
@@ -14,7 +15,10 @@ const AnnouncementCart = () => {
         }
     })
 
-    console.log(announcements);
+    // console.log(announcements);
+    if (isLoading) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div>

@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hook/useAuth";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
 import { useState } from "react";
+import LoadingSpinner from "../../../components/LoadingSpinner";
+import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
     const axiosSecure = useAxiosSecure();
@@ -9,7 +11,7 @@ const PaymentHistory = () => {
     const { user, loading } = useAuth();
 
 
-    const { data: payments = [], refetch } = useQuery({
+    const { data: payments = [], refetch, isLoading } = useQuery({
         queryKey: ['payment', user?.email, search],
         enabled: !loading && !!user?.email,
         queryFn: async () => {
@@ -24,10 +26,15 @@ const PaymentHistory = () => {
         setSearch(e.target.search.value)
         refetch();
     }
-    console.log(search);
+    // console.log(search);
+
+    if(isLoading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet><title>Member | Payment History</title></Helmet>
             <h2 className=" font-sev font-bold text-center my-10 text-4xl">Payment History</h2>
             <div>
                 <form onSubmit={handleSearch}>

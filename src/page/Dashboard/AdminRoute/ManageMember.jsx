@@ -2,11 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hook/useAxiosSecure";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
+import LoadingSpinner from "../../../components/LoadingSpinner";
+import { Helmet } from "react-helmet-async";
 
 const ManageMember = () => {
     const axiosSecure = useAxiosSecure();
 
-    const { data: users = [], refetch } = useQuery({
+    const { data: users = [], refetch, isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/users')
@@ -44,8 +46,13 @@ const ManageMember = () => {
         });
     }
 
+    if(isLoading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
+
     return (
         <div>
+            <Helmet><title>Admin | Manage Member</title></Helmet>
             <h1 className="text-4xl font-bold font-sev text-center mt-10">Manage Member</h1>
             <div className="lg:w-10/12 mx-auto bg-base-100 p-10 rounded-lg mb-10">
 
