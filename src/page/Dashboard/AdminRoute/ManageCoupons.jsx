@@ -65,7 +65,7 @@ const ManageCoupons = () => {
             <div className="lg:w-11/12 mx-auto bg-base-100 p-10 rounded-lg mb-10">
                 <button
                     onClick={() => setIsEditModalOpen(true)}
-                    className="btn border-0 w-[15%] mx-auto border-b-4 text-lg btn-outline text-[#001238] uppercase bg-[#EBF8FE]"
+                    className="btn border-0 mx-auto border-b-4 text-lg btn-outline text-[#001238] uppercase bg-[#EBF8FE]"
                 >Add Coupon
                     <AddCoupon
                         setIsEditModalOpen={setIsEditModalOpen}

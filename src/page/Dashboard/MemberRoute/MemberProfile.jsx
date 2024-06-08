@@ -25,7 +25,7 @@ const MemberProfile = () => {
     return (
         <>
         <Helmet><title>Member Profile</title></Helmet>
-            <div className="w-11/12 md:w-10/12 mx-auto">
+            <div className="w-11/12 md:w-11/12 mx-auto">
                 <div className="  mt-20 md:w-1/2 mx-auto p-6 bg-[#EBF8FE] shadow-md rounded-xl ">
                     <img src={user?.photoURL} alt="user image" referrerPolicy="no-referrer" className="w-32 object-cover object-center h-32 mx-auto rounded-full bg-gray-500 aspect-square border-4 mb-4 text-blue-950 border-white shadow-xl" />
                     <div className="space-y-4 text-center divide-y ">

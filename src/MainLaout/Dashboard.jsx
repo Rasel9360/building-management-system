@@ -27,7 +27,7 @@ const Dashboard = () => {
         <div>
             <div className="flex">
                 {/* Sidebar */}
-                <div className={`w-72 ${toggleOpen ? 'hidden' : 'block'} py-4 text-white min-h-screen bg-[#001238]`}>
+                <div className={`w-72 ${toggleOpen ? 'lg:hidden block' : 'lg:block hidden'} py-4 text-white min-h-screen bg-[#001238]`}>
                     <h1 className="text-3xl text-center font-sev pb-1">{role} Dashboard</h1>
 
                     <hr />
