@@ -1,3 +1,15 @@
+##Steps to Clone and Run a React Project Locally:
+
+1. **Clone the Repository:**
+   - git clone (repository link)
+2. **Navigate to the Project Directory::**
+   - cd your-repo-name
+3. Install Dependencies:
+   - npm install
+4. Start the Development Server
+   - npm run dev
+
+
 # Building Management System
 
 Welcome to the BEVERLY
