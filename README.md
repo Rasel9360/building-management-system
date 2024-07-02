@@ -1,4 +1,4 @@
-##Steps to Clone and Run a React Project Locally:
+## Steps to Clone and Run a React Project Locally:
 
 1. **Clone the Repository:**
    - git clone (repository link)
